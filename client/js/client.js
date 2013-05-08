@@ -36,7 +36,6 @@ $(function()
 
 	function shiftMap(x, y)
 	{
-		console.log(size/2);
 		if (Date.now() > nextShift)
 		{
 			nextShift = Date.now() + fadeTime;
@@ -60,6 +59,8 @@ $(function()
 		}
 		screen.x -= x;
 		screen.y -= y;
+
+		var center = Math.floor(size/2);
 		$.each(map.children(), function(i, elem)
 		{
 			elem = $(elem);
@@ -87,7 +88,7 @@ $(function()
 				if (dying)
 					this.remove();
 			})
-			.css("background-color", (screenPos.x == Math.floor(size/2) || screenPos.y == Math.floor(size/2)) ? "#D0D0D0" : "F0F0F0");
+			.css("background-color", (screenPos.x == center || screenPos.y == center) ? "#D0D0D0" : "F0F0F0");
 		});
 	}
 

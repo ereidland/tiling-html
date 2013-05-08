@@ -2,10 +2,11 @@ body
 {
 	font-family: Courier New, Sans-serif;
 	font-size: 12px;
-	background-color: #F0F0F0;
+	background-color: #888888;
 }
 .maptile
 {
+	background-color: #F0F0F0;
 	border: 1px dotted black;
 	position: absolute;
 }
