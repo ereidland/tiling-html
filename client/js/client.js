@@ -1,13 +1,20 @@
 $(function()
 {
-	var map			= $("#map"),
-		size		= 10,
+	var	map			= $("#map"),
+		size		= 11,
 		tileSize	= 40,
-		mapLeft		= map.offset().left,
-		mapTop		= map.offset().top,
 		fadeTime	= 500,
 		screen		= {x: 0, y: 0},
 		nextShift	= 0;
+
+	map.css(
+	{
+		width: size*tileSize + "px",
+		height: size*tileSize + "px"
+	});
+
+	var	mapLeft		= map.offset().left,
+		mapTop		= map.offset().top;
 
 	function createMapTile(x, y)
 	{
@@ -29,6 +36,7 @@ $(function()
 
 	function shiftMap(x, y)
 	{
+		console.log(size/2);
 		if (Date.now() > nextShift)
 		{
 			nextShift = Date.now() + fadeTime;
@@ -71,14 +79,15 @@ $(function()
 			{
 				"left": "+=" + x*tileSize + "px",
 				"top": "+=" + y*tileSize + "px",
-				"opacity": dying ? 0 : 1
+				"opacity": dying ? 0 : 1,
 			};	
 
 			elem.animate(toanim, fadeTime, function()
 			{
 				if (dying)
 					this.remove();
-			});
+			})
+			.css("background-color", (screenPos.x == Math.floor(size/2) || screenPos.y == Math.floor(size/2)) ? "#D0D0D0" : "F0F0F0");
 		});
 	}
 
