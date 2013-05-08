@@ -1,0 +1,11 @@
+body
+{
+	font-family: Courier New, Sans-serif;
+	font-size: 12px;
+}
+.maptile
+{
+	border: 1px dotted black;
+	background-color: #F0F0F0;
+	position: absolute;
+}
